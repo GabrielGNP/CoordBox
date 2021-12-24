@@ -1,0 +1,75 @@
+section.Caja
+{
+	background-color: #8f6932;
+	border: 2px solid black;
+	
+	z-index:0; /*Indica cual está por ensima de cual, a mayor valor, más adelante estará*/
+
+	position: absolute;
+	top: 146px;/*indica el desplazamiento desde el borde superior de la caja hasta el borde superior del elemento contenedor que se utiliza como referencia.*/
+	left:8px;/*indica la distancia desde el borde izquierdo hasta el borde izquierdo del elemento*/
+
+	height: 100px;/*Indica la altura de elemento, desde le borde superior hasta el inferior*/
+	width: 100px;
+
+}
+section.SuperBarr
+{
+	float: left;
+	background-color: #CCCCCC;
+	border: 2px solid black;
+	width: 100%;
+	border: 1px;
+	height:130px;
+	display: inline_block;
+}
+
+section.TecMov
+{
+	float: left;
+	display: inline_block;
+	background-color: #CCCCCC;
+/*	border: 1px solid; */
+	width: 8%;
+/*height: 120px;*/
+overflow:auto; 
+}
+
+#Coords
+{
+	float: left;
+	display: inline_block;
+	background-color: #CCCCCC;
+/*	border: 1px solid;*/
+	width: 8%;
+/*height: 120px;*/
+overflow:auto; 
+}
+
+#CantMov
+{
+	float: left;
+	display: inline_block;
+	background-color: #CCCCCC;
+/*	border: 1px solid;*/
+	width: 8%;
+/*height: 70px;*/
+overflow:auto; 
+}
+
+Herr
+{
+	float: right;
+	
+	top:300px;
+	height: 20px;
+	width: 20px;
+
+	background-color: #d84747;
+	border-top: 4px solid  #b3b3b3;
+	border-left: 4px solid  #b3b3b3;
+	border-bottom: 4px solid  #5e5e5e;
+	border-right: 4px solid  #5e5e5e;
+
+	align-content: center;
+}
