@@ -82,9 +82,17 @@ section.Caja {
   background-color: red;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  cursor: pointer;
 }
 #L1 #ocultator:checked ~ span {
   background-color: #2bad5d;
+}
+
+#L1 span i::before {
+  content: "";
+  top: 0px;
+  left: 0px;
+  background-color: #;
 }
 
 /* INICIO Teclas de Movimiento	*/
