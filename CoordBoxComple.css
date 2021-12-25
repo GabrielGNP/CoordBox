@@ -33,7 +33,7 @@ section.Caja {
   display: inline_block;
   background-color: #cccccc;
   align-items: top;
-  /*border: chocolate solid 3px;*/
+  border: chocolate solid 3px;
   width: 120px;
   height: 70px;
   position: absolute;
@@ -54,6 +54,39 @@ section.Caja {
   top: 0px;
   left: 379px;
 }
+#L1 {
+  position: fixed;
+  top: 133px;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  /*border: #2bad5d solid 3px;*/
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#ocultator {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+#L1 span {
+  position: absolute;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#L1 #ocultator:checked ~ span {
+  background-color: #2bad5d;
+}
+
 /* INICIO Teclas de Movimiento	*/
 #Ar {
   float: center;
