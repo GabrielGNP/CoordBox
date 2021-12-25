@@ -13,7 +13,7 @@
   <!--<section border=1 class="Caja" id="Caja0" align="center" onclick="CambiarBox()"> <br>Soy una caja<br><br>__________</section> -->
   <section class="SuperBarr">
     <!--	marco para mover las cajas	-->
-    <div class="CarcTec" align="center">
+    <div class="CarcTec" id="C1" align="center">
       <button type="button" onclick="arriba();" id="Ar">▲</button>
       <br />
       <button type="button" onclick="izquierda();">◄</button>
@@ -23,39 +23,56 @@
     </div>
 
     <!--	marco para cambiar la altura de las cajas	-->
-    <div class="CarcTec">
+    <div class="CarcTec" id="C2">
       <button onclick="adelante();">↑</button> Adelante <br />
       <button onclick="atras();">↓</button> Atras
       <section id="IndexDeBox"></section>
     </div>
 
     <!--	marco para crear cajas	-->
-    <section class="TecMov">
+    <section class="CarcTec" id="C3">
       <input
         type="text"
         id="TextCaja"
         size="10/"
         placeholder="Nombre de Caja"
       />
-      <button type="=button" onclick="Crear(getElementById('TextCaja').value);">
+      <input type="color" name="Color:" value="#8f6932" id="CL" /><button
+        type="=button"
+        style="height: 27px;"
+        onclick="Crear(getElementById('TextCaja').value);"
+      >
         New Box
       </button>
-      <input type="color" name="Color:" value="#8f6932" id="CL" />
-      <br />
-      <br />
-      <button type="=button" onclick="EliminarBox();">Eliminar Box</button>
+
+      <button type="=button" onclick="EliminarBox();" style="height: 27px;">
+        Eliminar Box
+      </button>
     </section>
 
     <!--	marco para cambiar la cantidad de pixeles de movimiento		-->
-    <section border="1" id="CantMov" align="center">
+    <section class="CarcTec" id="C4">
       Pixel
-      <input type="text" id="Pix" value="100" size="10/" />
+      <input type="text" id="Pix" value="100" size="10/" /> <br />
       <button type="=button" onclick="BarPix();">Cambiar Pix</button>
     </section>
 
     <!--	marco de coordenadas	-->
-    <section border="1" id="Coords" align="center"></section>
+    <section class="CarcTec" id="Coords" align="center"></section>
   </section>
+
+  <section class="Contenedor">
+    <b>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</b> <br />
+    <b>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</b> <br />
+    <b>cccccccccccccccccccccccccccccc</b> <br />
+    <b>dddddddddddddddddddddddddddddd</b> <br />
+    <b>eeeeeeeeeeeeeeeeeeeeeeeeeeeeee</b> <br />
+    <b>ffffffffffffffffffffffffffffff</b> <br />
+    <b>gggggggggggggggggggggggggggggg</b> <br />
+    <b>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</b> <br />
+    asda asdas dsadsa dsadsadasdsa
+  </section>
+
   <script>
     var moverN = document.getElementById("Pix").value;
     var Box = document.getElementById("Caja0");
@@ -214,6 +231,7 @@
         "Pocición: " + Box.style.zIndex;
       /*Borde*/ Box.style.border = "2px solid red";
     }
+
     function CambiarBox() {
       //	alert(this.id);
       /*Borde*/ Box.style.border = "2px solid black";
