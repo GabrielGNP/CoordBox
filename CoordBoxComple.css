@@ -1,75 +1,87 @@
-section.Caja
-{
-	background-color: #8f6932;
-	border: 2px solid black;
-	
-	z-index:0; /*Indica cual está por ensima de cual, a mayor valor, más adelante estará*/
+section.Caja {
+  background-color: #8f6932;
+  border: 2px solid black;
 
-	position: absolute;
-	top: 146px;/*indica el desplazamiento desde el borde superior de la caja hasta el borde superior del elemento contenedor que se utiliza como referencia.*/
-	left:8px;/*indica la distancia desde el borde izquierdo hasta el borde izquierdo del elemento*/
+  z-index: 0; /*Indica cual está por ensima de cual, a mayor valor, más adelante estará*/
 
-	height: 100px;/*Indica la altura de elemento, desde le borde superior hasta el inferior*/
-	width: 100px;
+  position: absolute;
+  top: 146px; /*indica el desplazamiento desde el borde superior de la caja hasta el borde superior del elemento contenedor que se utiliza como referencia.*/
+  left: 8px; /*indica la distancia desde el borde izquierdo hasta el borde izquierdo del elemento*/
 
+  height: 100px; /*Indica la altura de elemento, desde le borde superior hasta el inferior*/
+  width: 100px;
 }
-section.SuperBarr
-{
-	float: left;
-	background-color: #CCCCCC;
-	border: 2px solid black;
-	width: 100%;
-	border: 1px;
-	height:130px;
-	display: inline_block;
+.SuperBarr {
+  float: left;
+  background-color: #cccccc;
+  border: 2px solid black;
+  width: 100%;
+  border: 1px;
+  height: 130px;
+  display: inline_block;
+  overflow: auto;
 }
 
-section.TecMov
-{
-	float: left;
-	display: inline_block;
-	background-color: #CCCCCC;
-/*	border: 1px solid; */
-	width: 8%;
-/*height: 120px;*/
-overflow:auto; 
+.CarcTec {
+  float: left;
+  display: inline_block;
+  background-color: #cccccc;
+  align-items: top;
+  border: chocolate solid 3px;
+  width: 100px;
+  height: 70px;
 }
 
-#Coords
-{
-	float: left;
-	display: inline_block;
-	background-color: #CCCCCC;
-/*	border: 1px solid;*/
-	width: 8%;
-/*height: 120px;*/
-overflow:auto; 
+/* INICIO Teclas de Movimiento	*/
+#Ar {
+  float: center;
+}
+#Ab
+#D 
+#I
+/* FIN Teclas de Movimiento	*/
+
+
+/* INICIO Teclas de altura	*/
+.IndexDeBox {
+  float: right;
+  top: 10px;
+  border: chocolate solid 3px;
+}
+/* FIN Teclas de altura	*/
+
+#Coords {
+  float: left;
+  display: inline_block;
+  background-color: #cccccc;
+  /*	border: 1px solid;*/
+  width: 8%;
+  /*height: 120px;*/
+  overflow: auto;
 }
 
-#CantMov
-{
-	float: left;
-	display: inline_block;
-	background-color: #CCCCCC;
-/*	border: 1px solid;*/
-	width: 8%;
-/*height: 70px;*/
-overflow:auto; 
+#CantMov {
+  float: left;
+  display: inline_block;
+  background-color: #cccccc;
+  /*	border: 1px solid;*/
+  width: 8%;
+  /*height: 70px;*/
+  overflow: auto;
 }
 
-Herr
-{
-	float: right;
-	
-	top:300px;
-	height: 20px;
-	width: 20px;
+Herr {
+  float: right;
 
-	background-color: #d84747;
-	border-top: 4px solid  #b3b3b3;
-	border-left: 4px solid  #b3b3b3;
-	border-bottom: 4px solid  #5e5e5e;
-	border-right: 4px solid  #5e5e5e;
+  top: 300px;
+  height: 20px;
+  width: 20px;
 
-	align-content: center;
+  background-color: #d84747;
+  border-top: 4px solid #b3b3b3;
+  border-left: 4px solid #b3b3b3;
+  border-bottom: 4px solid #5e5e5e;
+  border-right: 4px solid #5e5e5e;
+
+  align-content: center;
 }

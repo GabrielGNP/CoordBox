@@ -1,213 +1,268 @@
 <!DOCTYPE html>
 
 <head>
-	<meta charset="UTF-8">
-	<title> CoordBox</title>
-	<link rel="stylesheet" href="CoordBoxComple.css">
-	<script> src="ManejoDeHerramientas.js"</script>
+  <meta charset="UTF-8" />
+  <title>CoordBox</title>
+  <link rel="stylesheet" href="CoordBoxComple.css" />
+  <script>
+    src = "ManejoDeHerramientas.js";
+  </script>
 </head>
 
 <body id="cuerpesito">
-	<div id="capa">
-
-
+  <!--<section border=1 class="Caja" id="Caja0" align="center" onclick="CambiarBox()"> <br>Soy una caja<br><br>__________</section> -->
+  <section class="SuperBarr">
+    <!--	marco para mover las cajas	-->
+    <div class="CarcTec" align="center">
+      <button type="button" onclick="arriba();" id="Ar">▲</button>
+      <br />
+      <button type="button" onclick="izquierda();">◄</button>
+      <button type="button" onclick="abajo();">▼</button>
+      <button type="button" onclick="derecha();">►</button>
+      <br />
     </div>
-	<Herr>▲</Herr>
-<!--<section border=1 class="Caja" id="Caja0" align="center" onclick="CambiarBox()"> <br>Soy una caja<br><br>__________</section> -->
-<section class="SuperBarr"> 
 
-	<!--	marco para mover las cajas	-->
-	<section border=1 class="TecMov" align="center">
-		<button type="button" onclick="arriba();">▲</button>
-		<br>
-		<button type="button" onclick="izquierda();">◄</button>
-		<button type="button" onclick="abajo();">▼</button>
-		<button type="button" onclick="derecha();">►</button>	
-		<br>
-		<p align="left">
-			<button onclick="adelante();">↑</button>	Adelante <br>
-			<button onclick="atras();">↓</button>	Atras <br>
-			<section id="IndexDeBox"></section> 
-		</p>
-	</section>
-	
-	
-	<!--	marco para crear cajas	-->
-	<section class="TecMov">
-		<input type="text" id="TextCaja" size="10/" Placeholder="Nombre de Caja">
-		<button type="=button" onclick="Crear(getElementById('TextCaja').value);">New Box</button>
-		<input type="color" name="Color:" value="#8f6932" id="CL">
-		<br>
-		<br>
-		<button type="=button" onclick="EliminarBox();">Eliminar Box</button>
-	</section>
+    <!--	marco para cambiar la altura de las cajas	-->
+    <div class="CarcTec">
+      <button onclick="adelante();">↑</button> Adelante <br />
+      <button onclick="atras();">↓</button> Atras
+      <section id="IndexDeBox"></section>
+    </div>
 
-	<!--	marco para cambiar la cantidad de pixeles de movimiento		-->
-	<section border=1 id="CantMov" align="center">Pixel
-		<input type="text" id="Pix" value="100" size="10/" >
-		<button type="=button" onclick="BarPix();">Cambiar Pix</button>
-	</section>
+    <!--	marco para crear cajas	-->
+    <section class="TecMov">
+      <input
+        type="text"
+        id="TextCaja"
+        size="10/"
+        placeholder="Nombre de Caja"
+      />
+      <button type="=button" onclick="Crear(getElementById('TextCaja').value);">
+        New Box
+      </button>
+      <input type="color" name="Color:" value="#8f6932" id="CL" />
+      <br />
+      <br />
+      <button type="=button" onclick="EliminarBox();">Eliminar Box</button>
+    </section>
 
-	<!--	marco de coordenadas	-->
-	<section border=1 id="Coords" align="center"></section>
+    <!--	marco para cambiar la cantidad de pixeles de movimiento		-->
+    <section border="1" id="CantMov" align="center">
+      Pixel
+      <input type="text" id="Pix" value="100" size="10/" />
+      <button type="=button" onclick="BarPix();">Cambiar Pix</button>
+    </section>
 
-</section>
-<script>
-var moverN =document.getElementById("Pix").value;
-var Box = document.getElementById("Caja0");
-var Corden = document.getElementById("Coords");
-var TotBox = 0;
-function NewsEvents()
-{
-	var Bar = document.getElementById("Pix");
-	Bar.addEventListener("click",BarPix);
+    <!--	marco de coordenadas	-->
+    <section border="1" id="Coords" align="center"></section>
+  </section>
+  <script>
+    var moverN = document.getElementById("Pix").value;
+    var Box = document.getElementById("Caja0");
+    var Corden = document.getElementById("Coords");
+    var TotBox = 0;
+    function NewsEvents() {
+      var Bar = document.getElementById("Pix");
+      Bar.addEventListener("click", BarPix);
+    }
+    function BarPix() {
+      moverN = parseInt(document.getElementById("Pix").value);
+    }
 
-}
-function BarPix()
-{
-	moverN= parseInt(document.getElementById("Pix").value);
-}
+    //____
+    function arriba() {
+      var topN = Box.getBoundingClientRect().top;
+      var leftN = Box.getBoundingClientRect().left;
+      if (topN - moverN >= 100) {
+        topN = parseInt(topN) - parseInt(moverN);
+      }
+      Box.style.top = parseInt(topN) + "px";
+      var widthN = Box.getBoundingClientRect().width;
+      var heightN = Box.getBoundingClientRect().height;
+      document.getElementById("Coords").innerText =
+        "Vertical: " +
+        parseInt(Box.getBoundingClientRect().top - 145) +
+        "px     " +
+        " Horizontal: " +
+        parseInt(Box.getBoundingClientRect().left - 7) +
+        "px " +
+        "width: " +
+        parseInt(widthN) +
+        "px " +
+        "height: " +
+        parseInt(heightN) +
+        "px ";
+    }
+    //____
+    function abajo() {
+      var topN = Box.getBoundingClientRect().top;
+      var leftN = Box.getBoundingClientRect().left;
+      topN = parseInt(topN) + parseInt(moverN);
+      Box.style.top = parseInt(topN) + "px";
+      var widthN = Box.getBoundingClientRect().width;
+      var heightN = Box.getBoundingClientRect().height;
+      document.getElementById("Coords").innerText =
+        "Vertical: " +
+        parseInt(Box.getBoundingClientRect().top - 145) +
+        "px " +
+        " Horizontal: " +
+        parseInt(Box.getBoundingClientRect().left - 7) +
+        "px " +
+        "width: " +
+        parseInt(widthN) +
+        "px " +
+        "height: " +
+        parseInt(heightN) +
+        "px ";
+    }
+    //____
+    function izquierda() {
+      var topN = Box.getBoundingClientRect().top;
+      var leftN = Box.getBoundingClientRect().left;
+      //alert("LeftN " + parseInt(leftN));
+      //	alert("moverN " + parseInt(moverN));
+      if (parseInt(leftN - moverN) > 0) {
+        leftN = parseInt(leftN) - parseInt(moverN);
+        Box.style.left = parseInt(leftN) + "px";
+      }
 
+      var widthN = Box.getBoundingClientRect().width;
+      var heightN = Box.getBoundingClientRect().height;
+      document.getElementById("Coords").innerText =
+        "Vertical: " +
+        parseInt(Box.getBoundingClientRect().top - 145) +
+        "px " +
+        " Horizontal: " +
+        parseInt(Box.getBoundingClientRect().left - 7) +
+        "px " +
+        "width: " +
+        parseInt(widthN) +
+        "px " +
+        "height: " +
+        parseInt(heightN) +
+        "px ";
+    }
+    //____
+    function derecha() {
+      var topN = Box.getBoundingClientRect().top;
+      var leftN = Box.getBoundingClientRect().left;
+      //alert("LeftN " + parseInt(leftN));
+      //alert("moverN " + parseInt(moverN));
+      //alert("New LeftN " + (parseInt(leftN)+parseInt(moverN)));
+      Box.style.left = parseInt(leftN) + parseInt(moverN) + "px";
+      //alert("Box.style.left" + Box.style.left );
 
-//____
-function arriba()
-{
-	var topN = Box.getBoundingClientRect().top;
-    var leftN = Box.getBoundingClientRect().left;
-	if (topN-moverN>=100)
-	{
-		topN=parseInt(topN)-parseInt(moverN);
-	}
-	Box.style.top = parseInt(topN)+"px";
-	var widthN= Box.getBoundingClientRect().width;
-	var heightN = Box.getBoundingClientRect().height;
-    document.getElementById("Coords").innerText = "Vertical: " + parseInt(Box.getBoundingClientRect().top-145) + "px     " + " Horizontal: " + parseInt(Box.getBoundingClientRect().left-7) + "px " + "width: " + parseInt(widthN) + "px " + "height: " + parseInt(heightN) + "px ";
-};
-//____
-function abajo()
-{ 
-	var topN = Box.getBoundingClientRect().top;
-    var leftN = Box.getBoundingClientRect().left;
-	topN=parseInt(topN)+parseInt(moverN);
-	Box.style.top = parseInt(topN)+"px";
-	var widthN= Box.getBoundingClientRect().width;
-	var heightN = Box.getBoundingClientRect().height;
-    document.getElementById("Coords").innerText = "Vertical: " + parseInt(Box.getBoundingClientRect().top-145) + "px " + " Horizontal: " + parseInt(Box.getBoundingClientRect().left-7) + "px " + "width: " + parseInt(widthN) + "px " + "height: " + parseInt(heightN) + "px ";
+      var widthN = Box.getBoundingClientRect().width;
+      var heightN = Box.getBoundingClientRect().height;
+      //alert("Box.style.left" + Box.style.left );
+      document.getElementById("Coords").innerText =
+        "Vertical: " +
+        parseInt(Box.getBoundingClientRect().top - 145) +
+        "px " +
+        " Horizontal: " +
+        parseInt(Box.getBoundingClientRect().left - 7) +
+        "px " +
+        "width: " +
+        parseInt(widthN) +
+        "px " +
+        "height: " +
+        parseInt(heightN) +
+        "px ";
+      //alert("Box.style.left" + Box.style.left );
+    }
+    //____
+    function Crear(texto) {
+      var capa = document.getElementById("cuerpesito");
+      var B1 = document.createElement("section");
 
-};
-//____
-function izquierda()
-{
-    var topN = Box.getBoundingClientRect().top;
-	var leftN = Box.getBoundingClientRect().left;
-//alert("LeftN " + parseInt(leftN));
-//	alert("moverN " + parseInt(moverN));
-	if (parseInt(leftN-moverN)>0)
-	{
-	
-		leftN=parseInt(leftN)-parseInt(moverN);
-		Box.style.left = parseInt(leftN)+"px";	
-	}
-	
-	var widthN= Box.getBoundingClientRect().width;
-	var heightN = Box.getBoundingClientRect().height;
-   document.getElementById("Coords").innerText = "Vertical: " + parseInt(Box.getBoundingClientRect().top-145) + "px " + " Horizontal: " + parseInt(Box.getBoundingClientRect().left-7) + "px " + "width: " + parseInt(widthN) + "px " + "height: " + parseInt(heightN) + "px ";
-	
-}
-//____
-function derecha()
-{
-    var topN = Box.getBoundingClientRect().top;
-	var leftN = Box.getBoundingClientRect().left;
-//alert("LeftN " + parseInt(leftN));
-//alert("moverN " + parseInt(moverN));
-//alert("New LeftN " + (parseInt(leftN)+parseInt(moverN)));
-	Box.style.left = parseInt(leftN)+parseInt(moverN)+"px";	
-//alert("Box.style.left" + Box.style.left );
+      if (Box) {
+        // 		alert(Box.id);
+        /*Borde*/ Box.style.border = "2px solid black";
+      }
+      B1.innerHTML = texto;
+      B1.className = "Caja";
+      //alert(TotBox);
+      B1.style.backgroundColor = document.getElementById("CL").value;
+      //alert(document.getElementById("CL").value);
+      B1.id = "Caja" + TotBox;
+      B1.style.zIndex = TotBox;
+      TotBox = TotBox + 1;
+      //alert(h1.id);
+      //	B1.onclick="CambiarBox(B1.id);";
+      B1.addEventListener("click", CambiarBox);
+      /*Borde*/ B1.style.border = "2px solid black";
+      capa.appendChild(B1); //appendChild añade un elemento a la pantalla, en este caso una caja
+      Box = document.getElementById(B1.id);
+      var topN = Box.getBoundingClientRect().top;
+      var leftN = Box.getBoundingClientRect().left;
+      var widthN = Box.getBoundingClientRect().width;
+      var heightN = Box.getBoundingClientRect().height;
+      document.getElementById("Coords").innerText =
+        "Vertical: " +
+        parseInt(Box.getBoundingClientRect().top - 145) +
+        "px " +
+        " Horizontal: " +
+        parseInt(Box.getBoundingClientRect().left - 7) +
+        "px " +
+        "width: " +
+        parseInt(widthN) +
+        "px " +
+        "height: " +
+        parseInt(heightN) +
+        "px ";
+      document.getElementById("IndexDeBox").innerText =
+        "Pocición: " + Box.style.zIndex;
+      /*Borde*/ Box.style.border = "2px solid red";
+    }
+    function CambiarBox() {
+      //	alert(this.id);
+      /*Borde*/ Box.style.border = "2px solid black";
+      Box = document.getElementById(this.id);
+      //	alert(Box.id);
+      var topN = Box.getBoundingClientRect().top;
+      var leftN = Box.getBoundingClientRect().left;
+      var widthN = Box.getBoundingClientRect().width;
+      var heightN = Box.getBoundingClientRect().height;
+      /*Borde*/ Box.style.border = "2px solid red";
+      document.getElementById("Coords").innerText =
+        "Vertical: " +
+        (topN - 146) +
+        "px " +
+        " Horizontal: " +
+        (leftN - 8) +
+        "px " +
+        "width: " +
+        widthN +
+        "px " +
+        "height: " +
+        heightN +
+        "px ";
+      document.getElementById("IndexDeBox").innerText =
+        "Pocición: " + Box.style.zIndex;
+    }
 
-	var widthN= Box.getBoundingClientRect().width;
-	var heightN = Box.getBoundingClientRect().height;
-//alert("Box.style.left" + Box.style.left );
-    document.getElementById("Coords").innerText = "Vertical: " + parseInt(Box.getBoundingClientRect().top-145) + "px " + " Horizontal: " + parseInt(Box.getBoundingClientRect().left-7) + "px " + "width: " + parseInt(widthN) + "px " + "height: " + parseInt(heightN) + "px ";
-//alert("Box.style.left" + Box.style.left );
-}
-//____
-function Crear(texto){
-	var capa =document.getElementById("cuerpesito");
-  var B1 = document.createElement("section");
+    function EliminarBox() {
+      var capa = document.getElementById("cuerpesito");
+      var Eliminate = document.getElementById(Box.id);
+      //alert(capa + "--" + Box.id + "--" + Eliminate);
 
-	if (Box)
-	{
-// 		alert(Box.id);
-		/*Borde*/Box.style.border = "2px solid black";
-	} 
-  B1.innerHTML = texto;
-  B1.className="Caja";
-//alert(TotBox);
-	B1.style.backgroundColor = document.getElementById("CL").value;
-//alert(document.getElementById("CL").value);
-  B1.id="Caja"+TotBox;
-  B1.style.zIndex = TotBox;
-  TotBox=TotBox+1;
-//alert(h1.id);	
-//	B1.onclick="CambiarBox(B1.id);";
-  B1.addEventListener("click",CambiarBox);
- /*Borde*/ B1.style.border = "2px solid black";
-  capa.appendChild(B1); //appendChild añade un elemento a la pantalla, en este caso una caja
-	Box=document.getElementById(B1.id);
-	var topN = Box.getBoundingClientRect().top;
-	var leftN = Box.getBoundingClientRect().left;
-	var widthN= Box.getBoundingClientRect().width;
-	var heightN = Box.getBoundingClientRect().height;
-	document.getElementById("Coords").innerText = "Vertical: " + parseInt(Box.getBoundingClientRect().top-145) + "px " + " Horizontal: " + parseInt(Box.getBoundingClientRect().left-7) + "px " + "width: " + parseInt(widthN) + "px " + "height: " + parseInt(heightN) + "px ";
-	document.getElementById("IndexDeBox").innerText = "Pocición: " + Box.style.zIndex;
-	/*Borde*/Box.style.border = "2px solid red";
-}
-function CambiarBox()
-{
-//	alert(this.id);
-	/*Borde*/Box.style.border = "2px solid black";
-	Box=document.getElementById(this.id);
-//	alert(Box.id);
-	var topN = Box.getBoundingClientRect().top;
-	var leftN = Box.getBoundingClientRect().left;
-	var widthN= Box.getBoundingClientRect().width;
-	var heightN = Box.getBoundingClientRect().height;
-	/*Borde*/Box.style.border = "2px solid red";
-    document.getElementById("Coords").innerText = "Vertical: " + (topN-146) + "px " + " Horizontal: " + (leftN-8) + "px " + "width: " + widthN + "px " + "height: " + heightN + "px ";
-	document.getElementById("IndexDeBox").innerText = "Pocición: " + Box.style.zIndex;
-}
+      capa.removeChild(Eliminate);
+    }
 
-function EliminarBox()
-{
-	var capa =document.getElementById("cuerpesito");
-	var Eliminate = document.getElementById(Box.id);
-//alert(capa + "--" + Box.id + "--" + Eliminate);
+    function CambiarZ_Index() {
+      //Box.style.zIndex =
+    }
 
-	capa.removeChild(Eliminate);
+    function adelante() {
+      Box.style.zIndex = parseInt(Box.style.zIndex) + parseInt(1);
+      document.getElementById("IndexDeBox").innerText =
+        "Pocición: " + Box.style.zIndex;
+    }
 
-};
-
-function CambiarZ_Index()
-{
-	//Box.style.zIndex = 
-
-}
-
-function adelante()
-{
-	Box.style.zIndex = parseInt(Box.style.zIndex ) + parseInt(1);
-	document.getElementById("IndexDeBox").innerText = "Pocición: " + Box.style.zIndex;
-	
-}
-
-function atras()
-{
-	Box.style.zIndex = Box.style.zIndex -1;
-	document.getElementById("IndexDeBox").innerText = "Pocición: " + Box.style.zIndex;
-
-}
-
-</script>
-
+    function atras() {
+      Box.style.zIndex = Box.style.zIndex - 1;
+      document.getElementById("IndexDeBox").innerText =
+        "Pocición: " + Box.style.zIndex;
+    }
+  </script>
 </body>
