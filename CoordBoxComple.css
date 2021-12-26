@@ -1,3 +1,7 @@
+body {
+  overflow: auto;
+}
+
 section.Caja {
   background-color: #8f6932;
   border: 2px solid black;
@@ -10,26 +14,85 @@ section.Caja {
 
   height: 100px; /*Indica la altura de elemento, desde le borde superior hasta el inferior*/
   width: 100px;
+  overflow: auto;
 }
 .SuperBarr {
   float: left;
   background-color: #cccccc;
   border: 2px solid black;
   width: 100%;
-  border: 1px;
+  left: 0px;
   height: 130px;
   display: inline_block;
   overflow: auto;
+  position: fixed;
+  top: 0px;
 }
-
 .CarcTec {
   float: left;
   display: inline_block;
   background-color: #cccccc;
   align-items: top;
   border: chocolate solid 3px;
-  width: 100px;
+  width: 120px;
   height: 70px;
+  position: absolute;
+}
+#C1 {
+  top: 0px;
+  left: 0px;
+}
+#C2 {
+  top: 0px;
+  left: 126px;
+}
+#C3 {
+  top: 0px;
+  left: 253px;
+}
+#C4 {
+  top: 0px;
+  left: 379px;
+}
+#L1 {
+  position: fixed;
+  top: 133px;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  /*border: #2bad5d solid 3px;*/
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+#ocultator {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+#L1 span {
+  position: absolute;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
+}
+#L1 #ocultator:checked ~ span {
+  background-color: #2bad5d;
+}
+
+#L1 span i::before {
+  content: "";
+  top: 0px;
+  left: 0px;
+  background-color: #;
 }
 
 /* INICIO Teclas de Movimiento	*/
@@ -54,10 +117,12 @@ section.Caja {
   float: left;
   display: inline_block;
   background-color: #cccccc;
-  /*	border: 1px solid;*/
-  width: 8%;
-  /*height: 120px;*/
+  width: 130px;
+  height: 80px;
   overflow: auto;
+  position: absolute;
+  top: 0px;
+  left: 505px;
 }
 
 #CantMov {
@@ -70,18 +135,11 @@ section.Caja {
   overflow: auto;
 }
 
-Herr {
-  float: right;
-
-  top: 300px;
-  height: 20px;
-  width: 20px;
-
-  background-color: #d84747;
-  border-top: 4px solid #b3b3b3;
-  border-left: 4px solid #b3b3b3;
-  border-bottom: 4px solid #5e5e5e;
-  border-right: 4px solid #5e5e5e;
-
-  align-content: center;
+.Contenedor {
+  margin-top: 130px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  border: 0px;
 }
