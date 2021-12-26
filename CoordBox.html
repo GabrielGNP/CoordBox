@@ -62,13 +62,21 @@
     <!--	marco de coordenadas	-->
     <section class="CarcTec" id="Coords" align="center"></section>
   </section>
+  <!-- FIN Barra superior de comandos-->
+
+  <!-- ocultar barra superior-->
   <label id="L1">
-    <input type="checkbox" class="CarcTec" id="ocultator" />
+    <input
+      type="checkbox"
+      class="CarcTec"
+      id="ocultator"
+      onclick="Ocultar();"
+    />
     <span>
       <i></i>
     </span>
   </label>
-  <!-- FIN Barra superior de comandos-->
+
   <section class="Contenedor"></section>
 </body>
 
@@ -77,6 +85,20 @@
   var Box = document.getElementById("Caja0");
   var Corden = document.getElementById("Coords");
   var TotBox = 0;
+  var checkbox1 = document.getElementById("ocultator").Checked;
+  checkbox1.addEventListener("change", Ocultar());
+
+  function Ocultar() {
+    var chequeado = checkbox1.Checked;
+    alert("checkbox1 esta seleccionado");
+    if (chequeado) {
+      alert("checkbox1 esta seleccionado");
+      document.getElementsByClassName("SuperBarr").style.visibility = "hidden";
+    } else {
+      document.getElementsByClassName("SuperBarr").style.visibility = "visible";
+    }
+  }
+
   function NewsEvents() {
     var Bar = document.getElementById("Pix");
     Bar.addEventListener("click", BarPix);
