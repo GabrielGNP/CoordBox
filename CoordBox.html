@@ -13,7 +13,7 @@
   <!--<section border=1 class="Caja" id="Caja0" align="center" onclick="CambiarBox()"> <br>Soy una caja<br><br>__________</section> -->
 
   <!-- INICIO Barra superior de comandos-->
-  <section class="SuperBarr">
+  <section class="SuperBarr" id="Menu1">
     <!--	marco para mover las cajas	-->
     <div class="CarcTec" id="C1" align="center">
       <button type="button" onclick="arriba();" id="Ar">▲</button>
@@ -73,7 +73,7 @@
       onclick="Ocultar();"
     />
     <span>
-      <i></i>
+      <i class="fa fa-arrow-circle-up" id="flecha"></i>
     </span>
   </label>
 
@@ -85,20 +85,34 @@
   var Box = document.getElementById("Caja0");
   var Corden = document.getElementById("Coords");
   var TotBox = 0;
-  var checkbox1 = document.getElementById("ocultator").Checked;
-  checkbox1.addEventListener("change", Ocultar());
+  var ConCheck1 = document.getElementById("L1");
+  var checkbox1 = document.getElementById("ocultator");
+  var flecha = document.getElementById("flecha");
+  var menu = document.getElementById("Menu1");
 
-  function Ocultar() {
-    var chequeado = checkbox1.Checked;
-    alert("checkbox1 esta seleccionado");
-    if (chequeado) {
-      alert("checkbox1 esta seleccionado");
-      document.getElementsByClassName("SuperBarr").style.visibility = "hidden";
+  checkbox1.addEventListener("change", function () {
+    if (this.checked) {
+      menu.style.visibility = "hidden";
+      ConCheck1.style.top = "0px";
+      flecha.className = "fa fa-arrow-circle-down";
     } else {
-      document.getElementsByClassName("SuperBarr").style.visibility = "visible";
+      menu.style.visibility = "visible";
+      ConCheck1.style.top = "133px";
+      flecha.className = "fa fa-arrow-circle-up";
     }
-  }
+  });
 
+  /*
+    function Ocultar() {
+      var chequeado = checkbox1.Checked;
+      if ((chequeado = true)) {
+        alert("checkbox1 esta seleccionado");
+        
+      } else {
+        menu.style.visibility = "visible";
+      }
+    }
+  */
   function NewsEvents() {
     var Bar = document.getElementById("Pix");
     Bar.addEventListener("click", BarPix);

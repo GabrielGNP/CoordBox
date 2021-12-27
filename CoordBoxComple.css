@@ -1,3 +1,4 @@
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 body {
   overflow: auto;
 }
@@ -71,7 +72,7 @@ section.Caja {
   padding: 0px;
   width: 100%;
   height: 100%;
-  visibility: visible;
+  visibility: hidden;
 }
 #L1 span {
   position: absolute;
@@ -80,24 +81,26 @@ section.Caja {
   padding: 0px;
   width: 100%;
   height: 100%;
-  background-color: red;
+  background-color: #c3c3c3;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   cursor: pointer;
-  visibility: hidden;
+  visibility: visible;
 }
+/*
 #L1 #ocultator:checked ~ span {
   background-color: #2bad5d;
   visibility: hidden;
 }
-
-#L1 span i::before {
-  content: "";
-  top: 0px;
-  left: 0px;
-  background-color: #;
+*/
+#L1 span #flecha {
+  position: absolute;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  font-size: 1.5em;
+  color: #4b4b4b;
 }
-
 /* INICIO Teclas de Movimiento	*/
 #Ar {
   float: center;
