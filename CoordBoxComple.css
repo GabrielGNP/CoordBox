@@ -19,13 +19,15 @@ section.Caja {
 }
 .SuperBarr {
   float: left;
-  background-color: #cccccc;
+  /*background-color: #cccccc;*/
+  background: linear-gradient(to left, #1f1f1f, #505050 99%);
   border: 2px solid black;
   width: 100%;
   left: 0px;
   height: 130px;
   display: inline_block;
-  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
   position: fixed;
   top: 0px;
   visibility: visible;
@@ -33,11 +35,12 @@ section.Caja {
 .CarcTec {
   float: left;
   display: inline_block;
-  background-color: #cccccc;
+  background-color: transparent;
   align-items: top;
-  border: chocolate solid 3px;
+
+  border-top-left: #23ae48 solid 3px;
   width: 120px;
-  height: 70px;
+  height: 95%;
   position: absolute;
 }
 #C1 {
@@ -122,9 +125,8 @@ section.Caja {
 #Coords {
   float: left;
   display: inline_block;
-  background-color: #cccccc;
+  background-color: transparent;
   width: 130px;
-  height: 80px;
   overflow: auto;
   position: absolute;
   top: 0px;
