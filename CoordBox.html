@@ -4,79 +4,121 @@
   <meta charset="UTF-8" />
   <title>CoordBox</title>
   <link rel="stylesheet" href="CoordBoxComple.css" />
-  <script>
-    src = "ManejoDeHerramientas.js";
-  </script>
+  <script type="text/javascript" src="ManejoDeHerramientas.js"></script>
 </head>
 
 <body id="cuerpesito">
   <!--<section border=1 class="Caja" id="Caja0" align="center" onclick="CambiarBox()"> <br>Soy una caja<br><br>__________</section> -->
 
   <!-- INICIO Barra superior de comandos-->
-  <section class="SuperBarr">
-    <!--	marco para mover las cajas	-->
-    <div class="CarcTec" id="C1" align="center">
-      <button type="button" onclick="arriba();" id="Ar">▲</button>
-      <br />
-      <button type="button" onclick="izquierda();">◄</button>
-      <button type="button" onclick="abajo();">▼</button>
-      <button type="button" onclick="derecha();">►</button>
-      <br />
-    </div>
+  <section class="SuperBarr" id="Menu1">
+    <div id="sombra">
+      <!--	marco para mover las cajas	-->
+      <div class="CarcTec" id="C1" align="center">
+        <button class="botin" type="button" onclick="arriba();" id="Ar">
+          ▲
+        </button>
+        <br />
+        <button class="botin" type="button" onclick="izquierda();" id="I">
+          ◄
+        </button>
+        <button class="botin" type="button" onclick="abajo();" id="Ab">
+          ▼
+        </button>
+        <button class="botin" type="button" onclick="derecha();" id="D">
+          ►
+        </button>
+        <br />
+      </div>
 
-    <!--	marco para cambiar la altura de las cajas	-->
-    <div class="CarcTec" id="C2">
-      <button onclick="adelante();">↑</button> Adelante <br />
-      <button onclick="atras();">↓</button> Atras
-      <section id="IndexDeBox"></section>
-    </div>
+      <!--	marco para cambiar la altura de las cajas	-->
+      <div class="CarcTec" id="C2">
+        <button class="botin" onclick="adelante();"">↑</button>
+        Adelante <br />
+        <section id="IndexDeBox">Posición: 0</section>
+        <button class="botin" onclick="atras();">↓</button> Atras
+      </div>
 
-    <!--	marco para crear cajas	-->
-    <section class="CarcTec" id="C3">
-      <input
-        type="text"
-        id="TextCaja"
-        size="10/"
-        placeholder="Nombre de Caja"
-      />
-      <input type="color" name="Color:" value="#8f6932" id="CL" /><button
+      <!--	marco para crear cajas	-->
+      <section class="CarcTec" id="C3">
+        <input
+          type="text"
+          id="TextCaja"
+          size="10/"
+          placeholder="Nombre de Caja"
+        />
+        <input type="color" name="Color:" value="#8f6932" id="CL" /><button
+        class="botin" 
         type="=button"
-        style="height: 27px;"
-        onclick="Crear(getElementById('TextCaja').value);"
-      >
-        New Box
-      </button>
+          style="height: 27px;"
+          onclick="Crear(getElementById('TextCaja').value);"
+        >
+          New Box
+        </button>
 
-      <button type="=button" onclick="EliminarBox();" style="height: 27px;">
-        Eliminar Box
-      </button>
-    </section>
+        <button class="botin" type="=button" onclick="EliminarBox();" style="height: 27px;">
+          Eliminar Box
+        </button>
+      </section>
 
-    <!--	marco para cambiar la cantidad de pixeles de movimiento		-->
-    <section class="CarcTec" id="C4">
-      Pixel
-      <input type="text" id="Pix" value="100" size="10/" /> <br />
-      <button type="=button" onclick="BarPix();">Cambiar Pix</button>
-    </section>
+      <!--	marco para cambiar la cantidad de pixeles de movimiento		-->
+      <section class="CarcTec" id="C4">
+        Pixel
+        <input type="text" id="Pix" value="100" size="10/" /> <br />
+        <button class="botin"type="=button" onclick="BarPix();">Cambiar Pix</button>
+      </section>
 
-    <!--	marco de coordenadas	-->
-    <section class="CarcTec" id="Coords" align="center"></section>
+      <!--	marco de coordenadas	-->
+      <section class="CarcTec" id="Coords" align="center"></section>
+    </div>
   </section>
+  <!-- FIN Barra superior de comandos-->
+
+  <!-- ocultar barra superior-->
   <label id="L1">
-    <input type="checkbox" class="CarcTec" id="ocultator" />
+    <input
+      type="checkbox"
+      class="CarcTec"
+      id="ocultator"
+      onclick="Ocultar();"
+    />
     <span>
-      <i></i>
+      <i class="fa fa-arrow-circle-up" id="flecha"></i>
     </span>
   </label>
-  <!-- FIN Barra superior de comandos-->
+
   <section class="Contenedor"></section>
 </body>
 
 <script>
+  /*_______________*/
+  /*variables globales*/
   var moverN = document.getElementById("Pix").value;
   var Box = document.getElementById("Caja0");
   var Corden = document.getElementById("Coords");
   var TotBox = 0;
+  var ConCheck1 = document.getElementById("L1");
+  var checkbox1 = document.getElementById("ocultator");
+  var flecha = document.getElementById("flecha");
+  var menu = document.getElementById("Menu1");
+
+  /*_______________*/
+  /*Eventos*/
+  checkbox1.addEventListener("change", function () {
+    if (this.checked) {
+      menu.style.visibility = "hidden";
+      ConCheck1.style.top = "0px";
+      flecha.className = "fa fa-arrow-circle-down";
+    } else {
+      menu.style.visibility = "visible";
+      ConCheck1.style.top = "131px";
+      flecha.className = "fa fa-arrow-circle-up";
+    }
+  });
+
+  /*_______________*/
+  /*funciones*/
+
   function NewsEvents() {
     var Bar = document.getElementById("Pix");
     Bar.addEventListener("click", BarPix);
@@ -227,7 +269,7 @@
       parseInt(heightN) +
       "px ";
     document.getElementById("IndexDeBox").innerText =
-      "Pocición: " + Box.style.zIndex;
+      "Posición: " + Box.style.zIndex;
     /*Borde*/ Box.style.border = "2px solid red";
   }
 
@@ -255,7 +297,7 @@
       heightN +
       "px ";
     document.getElementById("IndexDeBox").innerText =
-      "Pocición: " + Box.style.zIndex;
+      "Posición: " + Box.style.zIndex;
   }
 
   function EliminarBox() {
@@ -266,19 +308,15 @@
     capa.removeChild(Eliminate);
   }
 
-  function CambiarZ_Index() {
-    //Box.style.zIndex =
-  }
-
   function adelante() {
     Box.style.zIndex = parseInt(Box.style.zIndex) + parseInt(1);
     document.getElementById("IndexDeBox").innerText =
-      "Pocición: " + Box.style.zIndex;
+      "Posición: " + Box.style.zIndex;
   }
 
   function atras() {
     Box.style.zIndex = Box.style.zIndex - 1;
     document.getElementById("IndexDeBox").innerText =
-      "Pocición: " + Box.style.zIndex;
+      "Posición: " + Box.style.zIndex;
   }
 </script>

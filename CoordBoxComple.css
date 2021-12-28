@@ -1,3 +1,4 @@
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 body {
   overflow: auto;
 }
@@ -18,24 +19,38 @@ section.Caja {
 }
 .SuperBarr {
   float: left;
-  background-color: #cccccc;
-  border: 2px solid black;
+  /*background-color: #cccccc;*/
+  background: linear-gradient(to left, #414141, #8b8b8b 99%);
+  border: ;
   width: 100%;
   left: 0px;
   height: 130px;
   display: inline_block;
-  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
   position: fixed;
   top: 0px;
+  visibility: visible;
+  color: white;
 }
+#sombra {
+  position: absolute;
+
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  height: 118px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 .CarcTec {
   float: left;
   display: inline_block;
-  background-color: #cccccc;
+  background-color: transparent;
   align-items: top;
-  border: chocolate solid 3px;
+
   width: 120px;
-  height: 70px;
+  height: 95%;
   position: absolute;
 }
 #C1 {
@@ -56,7 +71,7 @@ section.Caja {
 }
 #L1 {
   position: fixed;
-  top: 133px;
+  top: 130px;
   right: 0px;
   width: 20px;
   height: 20px;
@@ -79,31 +94,60 @@ section.Caja {
   padding: 0px;
   width: 100%;
   height: 100%;
-  background-color: red;
+  background-color: #5d5d5d;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   cursor: pointer;
+  visibility: visible;
 }
+/*
 #L1 #ocultator:checked ~ span {
   background-color: #2bad5d;
+  visibility: hidden;
 }
-
-#L1 span i::before {
-  content: "";
-  top: 0px;
-  left: 0px;
-  background-color: #;
+*/
+#L1 span #flecha {
+  position: absolute;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  font-size: 1.5em;
+  color: #a3a3a3;
 }
-
 /* INICIO Teclas de Movimiento	*/
-#Ar {
-  float: center;
+.botin {
+  background: rgb(179, 204, 232);
+  border-top: 3px solid rgb(137, 158, 183);
+  border-bottom: 5px solid rgb(203, 223, 245);
 }
-#Ab
-#D 
-#I
-/* FIN Teclas de Movimiento	*/
+.botin:active {
+  background: rgb(207, 221, 237);
+  border-top: 3px solid rgb(137, 158, 183);
+  border-bottom: 5px solid rgb(203, 223, 245);
+}
 
+#Ar {
+  position: absolute;
+  left: 47px;
+  top: 5px;
+}
+#Ab {
+  position: absolute;
+  top: 35px;
+  left: 47px;
+}
+
+#D {
+  position: absolute;
+  top: 20px;
+  left: 80px;
+}
+#I {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+}
+/* FIN Teclas de Movimiento	*/
 
 /* INICIO Teclas de altura	*/
 .IndexDeBox {
@@ -116,9 +160,8 @@ section.Caja {
 #Coords {
   float: left;
   display: inline_block;
-  background-color: #cccccc;
+  background-color: transparent;
   width: 130px;
-  height: 80px;
   overflow: auto;
   position: absolute;
   top: 0px;
