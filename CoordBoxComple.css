@@ -35,9 +35,10 @@ section.Caja {
 }
 #sombra {
   position: absolute;
-  width: 98%;
+
   top: 5px;
   left: 5px;
+  right: 5px;
   height: 118px;
   background: rgba(0, 0, 0, 0.3);
 }
@@ -115,19 +116,38 @@ section.Caja {
 }
 /* INICIO Teclas de Movimiento	*/
 .botin {
-  background: rgb(34, 235, 151);
-  border-top: 5px solid rgb(25, 156, 38);
-  border-bottom: 5px solid rgb(119, 255, 132);
+  background: rgb(179, 204, 232);
+  border-top: 3px solid rgb(137, 158, 183);
+  border-bottom: 5px solid rgb(203, 223, 245);
+}
+.botin:active {
+  background: rgb(207, 221, 237);
+  border-top: 3px solid rgb(137, 158, 183);
+  border-bottom: 5px solid rgb(203, 223, 245);
 }
 
 #Ar {
-  float: center;
+  position: absolute;
+  left: 47px;
+  top: 5px;
 }
-#Ab
-#D 
-#I
-/* FIN Teclas de Movimiento	*/
+#Ab {
+  position: absolute;
+  top: 35px;
+  left: 47px;
+}
 
+#D {
+  position: absolute;
+  top: 20px;
+  left: 80px;
+}
+#I {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+}
+/* FIN Teclas de Movimiento	*/
 
 /* INICIO Teclas de altura	*/
 .IndexDeBox {

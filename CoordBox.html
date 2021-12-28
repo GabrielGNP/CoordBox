@@ -19,17 +19,24 @@
           ▲
         </button>
         <br />
-        <button class="botin" type="button" onclick="izquierda();">◄</button>
-        <button class="botin" type="button" onclick="abajo();">▼</button>
-        <button class="botin" type="button" onclick="derecha();">►</button>
+        <button class="botin" type="button" onclick="izquierda();" id="I">
+          ◄
+        </button>
+        <button class="botin" type="button" onclick="abajo();" id="Ab">
+          ▼
+        </button>
+        <button class="botin" type="button" onclick="derecha();" id="D">
+          ►
+        </button>
         <br />
       </div>
 
       <!--	marco para cambiar la altura de las cajas	-->
       <div class="CarcTec" id="C2">
-        <button onclick="adelante();">↑</button> Adelante <br />
-        <button onclick="atras();">↓</button> Atras
+        <button class="botin" onclick="adelante();"">↑</button>
+        Adelante <br />
         <section id="IndexDeBox">Posición: 0</section>
+        <button class="botin" onclick="atras();">↓</button> Atras
       </div>
 
       <!--	marco para crear cajas	-->
@@ -41,14 +48,15 @@
           placeholder="Nombre de Caja"
         />
         <input type="color" name="Color:" value="#8f6932" id="CL" /><button
-          type="=button"
+        class="botin" 
+        type="=button"
           style="height: 27px;"
           onclick="Crear(getElementById('TextCaja').value);"
         >
           New Box
         </button>
 
-        <button type="=button" onclick="EliminarBox();" style="height: 27px;">
+        <button class="botin" type="=button" onclick="EliminarBox();" style="height: 27px;">
           Eliminar Box
         </button>
       </section>
@@ -57,7 +65,7 @@
       <section class="CarcTec" id="C4">
         Pixel
         <input type="text" id="Pix" value="100" size="10/" /> <br />
-        <button type="=button" onclick="BarPix();">Cambiar Pix</button>
+        <button class="botin"type="=button" onclick="BarPix();">Cambiar Pix</button>
       </section>
 
       <!--	marco de coordenadas	-->
@@ -83,6 +91,8 @@
 </body>
 
 <script>
+  /*_______________*/
+  /*variables globales*/
   var moverN = document.getElementById("Pix").value;
   var Box = document.getElementById("Caja0");
   var Corden = document.getElementById("Coords");
@@ -91,6 +101,23 @@
   var checkbox1 = document.getElementById("ocultator");
   var flecha = document.getElementById("flecha");
   var menu = document.getElementById("Menu1");
+
+  /*_______________*/
+  /*Eventos*/
+  checkbox1.addEventListener("change", function () {
+    if (this.checked) {
+      menu.style.visibility = "hidden";
+      ConCheck1.style.top = "0px";
+      flecha.className = "fa fa-arrow-circle-down";
+    } else {
+      menu.style.visibility = "visible";
+      ConCheck1.style.top = "131px";
+      flecha.className = "fa fa-arrow-circle-up";
+    }
+  });
+
+  /*_______________*/
+  /*funciones*/
 
   function NewsEvents() {
     var Bar = document.getElementById("Pix");
@@ -292,16 +319,4 @@
     document.getElementById("IndexDeBox").innerText =
       "Posición: " + Box.style.zIndex;
   }
-
-  checkbox1.addEventListener("change", function () {
-    if (this.checked) {
-      menu.style.visibility = "hidden";
-      ConCheck1.style.top = "0px";
-      flecha.className = "fa fa-arrow-circle-down";
-    } else {
-      menu.style.visibility = "visible";
-      ConCheck1.style.top = "131px";
-      flecha.className = "fa fa-arrow-circle-up";
-    }
-  });
 </script>
