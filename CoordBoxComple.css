@@ -20,8 +20,8 @@ section.Caja {
 .SuperBarr {
   float: left;
   /*background-color: #cccccc;*/
-  background: linear-gradient(to left, #1f1f1f, #505050 99%);
-  border: 2px solid black;
+  background: linear-gradient(to left, #414141, #8b8b8b 99%);
+  border: ;
   width: 100%;
   left: 0px;
   height: 130px;
@@ -31,14 +31,23 @@ section.Caja {
   position: fixed;
   top: 0px;
   visibility: visible;
+  color: white;
 }
+#sombra {
+  position: absolute;
+  width: 98%;
+  top: 5px;
+  left: 5px;
+  height: 118px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 .CarcTec {
   float: left;
   display: inline_block;
   background-color: transparent;
   align-items: top;
 
-  border-top-left: #23ae48 solid 3px;
   width: 120px;
   height: 95%;
   position: absolute;
@@ -61,7 +70,7 @@ section.Caja {
 }
 #L1 {
   position: fixed;
-  top: 133px;
+  top: 130px;
   right: 0px;
   width: 20px;
   height: 20px;
@@ -84,7 +93,7 @@ section.Caja {
   padding: 0px;
   width: 100%;
   height: 100%;
-  background-color: #c3c3c3;
+  background-color: #5d5d5d;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   cursor: pointer;
@@ -102,9 +111,15 @@ section.Caja {
   border: 0px;
   padding: 0px;
   font-size: 1.5em;
-  color: #4b4b4b;
+  color: #a3a3a3;
 }
 /* INICIO Teclas de Movimiento	*/
+.botin {
+  background: rgb(34, 235, 151);
+  border-top: 5px solid rgb(25, 156, 38);
+  border-bottom: 5px solid rgb(119, 255, 132);
+}
+
 #Ar {
   float: center;
 }

@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <title>CoordBox</title>
   <link rel="stylesheet" href="CoordBoxComple.css" />
-  <script>
-    src = "ManejoDeHerramientas.js";
-  </script>
+  <script type="text/javascript" src="ManejoDeHerramientas.js"></script>
 </head>
 
 <body id="cuerpesito">
@@ -14,53 +12,57 @@
 
   <!-- INICIO Barra superior de comandos-->
   <section class="SuperBarr" id="Menu1">
-    <!--	marco para mover las cajas	-->
-    <div class="CarcTec" id="C1" align="center">
-      <button type="button" onclick="arriba();" id="Ar">▲</button>
-      <br />
-      <button type="button" onclick="izquierda();">◄</button>
-      <button type="button" onclick="abajo();">▼</button>
-      <button type="button" onclick="derecha();">►</button>
-      <br />
+    <div id="sombra">
+      <!--	marco para mover las cajas	-->
+      <div class="CarcTec" id="C1" align="center">
+        <button class="botin" type="button" onclick="arriba();" id="Ar">
+          ▲
+        </button>
+        <br />
+        <button class="botin" type="button" onclick="izquierda();">◄</button>
+        <button class="botin" type="button" onclick="abajo();">▼</button>
+        <button class="botin" type="button" onclick="derecha();">►</button>
+        <br />
+      </div>
+
+      <!--	marco para cambiar la altura de las cajas	-->
+      <div class="CarcTec" id="C2">
+        <button onclick="adelante();">↑</button> Adelante <br />
+        <button onclick="atras();">↓</button> Atras
+        <section id="IndexDeBox">Posición: 0</section>
+      </div>
+
+      <!--	marco para crear cajas	-->
+      <section class="CarcTec" id="C3">
+        <input
+          type="text"
+          id="TextCaja"
+          size="10/"
+          placeholder="Nombre de Caja"
+        />
+        <input type="color" name="Color:" value="#8f6932" id="CL" /><button
+          type="=button"
+          style="height: 27px;"
+          onclick="Crear(getElementById('TextCaja').value);"
+        >
+          New Box
+        </button>
+
+        <button type="=button" onclick="EliminarBox();" style="height: 27px;">
+          Eliminar Box
+        </button>
+      </section>
+
+      <!--	marco para cambiar la cantidad de pixeles de movimiento		-->
+      <section class="CarcTec" id="C4">
+        Pixel
+        <input type="text" id="Pix" value="100" size="10/" /> <br />
+        <button type="=button" onclick="BarPix();">Cambiar Pix</button>
+      </section>
+
+      <!--	marco de coordenadas	-->
+      <section class="CarcTec" id="Coords" align="center"></section>
     </div>
-
-    <!--	marco para cambiar la altura de las cajas	-->
-    <div class="CarcTec" id="C2">
-      <button onclick="adelante();">↑</button> Adelante <br />
-      <button onclick="atras();">↓</button> Atras
-      <section id="IndexDeBox"></section>
-    </div>
-
-    <!--	marco para crear cajas	-->
-    <section class="CarcTec" id="C3">
-      <input
-        type="text"
-        id="TextCaja"
-        size="10/"
-        placeholder="Nombre de Caja"
-      />
-      <input type="color" name="Color:" value="#8f6932" id="CL" /><button
-        type="=button"
-        style="height: 27px;"
-        onclick="Crear(getElementById('TextCaja').value);"
-      >
-        New Box
-      </button>
-
-      <button type="=button" onclick="EliminarBox();" style="height: 27px;">
-        Eliminar Box
-      </button>
-    </section>
-
-    <!--	marco para cambiar la cantidad de pixeles de movimiento		-->
-    <section class="CarcTec" id="C4">
-      Pixel
-      <input type="text" id="Pix" value="100" size="10/" /> <br />
-      <button type="=button" onclick="BarPix();">Cambiar Pix</button>
-    </section>
-
-    <!--	marco de coordenadas	-->
-    <section class="CarcTec" id="Coords" align="center"></section>
   </section>
   <!-- FIN Barra superior de comandos-->
 
@@ -89,18 +91,6 @@
   var checkbox1 = document.getElementById("ocultator");
   var flecha = document.getElementById("flecha");
   var menu = document.getElementById("Menu1");
-
-  checkbox1.addEventListener("change", function () {
-    if (this.checked) {
-      menu.style.visibility = "hidden";
-      ConCheck1.style.top = "0px";
-      flecha.className = "fa fa-arrow-circle-down";
-    } else {
-      menu.style.visibility = "visible";
-      ConCheck1.style.top = "133px";
-      flecha.className = "fa fa-arrow-circle-up";
-    }
-  });
 
   function NewsEvents() {
     var Bar = document.getElementById("Pix");
@@ -252,7 +242,7 @@
       parseInt(heightN) +
       "px ";
     document.getElementById("IndexDeBox").innerText =
-      "Pocición: " + Box.style.zIndex;
+      "Posición: " + Box.style.zIndex;
     /*Borde*/ Box.style.border = "2px solid red";
   }
 
@@ -280,7 +270,7 @@
       heightN +
       "px ";
     document.getElementById("IndexDeBox").innerText =
-      "Pocición: " + Box.style.zIndex;
+      "Posición: " + Box.style.zIndex;
   }
 
   function EliminarBox() {
@@ -291,19 +281,27 @@
     capa.removeChild(Eliminate);
   }
 
-  function CambiarZ_Index() {
-    //Box.style.zIndex =
-  }
-
   function adelante() {
     Box.style.zIndex = parseInt(Box.style.zIndex) + parseInt(1);
     document.getElementById("IndexDeBox").innerText =
-      "Pocición: " + Box.style.zIndex;
+      "Posición: " + Box.style.zIndex;
   }
 
   function atras() {
     Box.style.zIndex = Box.style.zIndex - 1;
     document.getElementById("IndexDeBox").innerText =
-      "Pocición: " + Box.style.zIndex;
+      "Posición: " + Box.style.zIndex;
   }
+
+  checkbox1.addEventListener("change", function () {
+    if (this.checked) {
+      menu.style.visibility = "hidden";
+      ConCheck1.style.top = "0px";
+      flecha.className = "fa fa-arrow-circle-down";
+    } else {
+      menu.style.visibility = "visible";
+      ConCheck1.style.top = "131px";
+      flecha.className = "fa fa-arrow-circle-up";
+    }
+  });
 </script>
